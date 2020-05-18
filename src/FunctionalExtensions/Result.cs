@@ -1,5 +1,8 @@
 ﻿namespace FunctionalExtensions
 {
+    /// <summary>
+    ///     http://hackage.haskell.org/package/result-0.2.6.0/docs/Control-Monad-Trans-Result.html
+    /// </summary>
     public class Result
     {
         private Result(bool isFailure)

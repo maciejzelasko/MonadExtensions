@@ -8,8 +8,6 @@ namespace FunctionalExtensions.Tests
         [Fact]
         public void Success_ShouldNotBeFailure()
         {
-            // Arrange
-
             // Act
             var result = Result.Success();
 
@@ -21,8 +19,6 @@ namespace FunctionalExtensions.Tests
         [Fact]
         public void Failure_ShouldNotBeSuccess()
         {
-            // Arrange
-
             // Act
             var result = Result.Failure();
 
