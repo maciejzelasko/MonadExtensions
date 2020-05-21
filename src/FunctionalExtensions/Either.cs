@@ -20,5 +20,9 @@
             this.right = right;
             isLeft = false;
         }
+
+        public static implicit operator Either<TL, TR>(TL left) => new Either<TL, TR>(left);
+
+        public static implicit operator Either<TL, TR>(TR right) => new Either<TL, TR>(right);
     }
 }
