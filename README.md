@@ -1,1 +1,1 @@
-# FunctionalExtensions
+[![Build Status](https://travis-ci.org/maciejzelasko/FunctionalExtensions.svg?branch=develop)](https://travis-ci.org/maciejzelasko/FunctionalExtensions)
