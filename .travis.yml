@@ -1,5 +1,4 @@
 language: csharp
-solution: FunctionalExtensions.sln
 mono: none
 sudo: required
 dist: xenial
