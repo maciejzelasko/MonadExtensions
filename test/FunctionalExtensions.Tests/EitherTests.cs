@@ -17,13 +17,19 @@ namespace FunctionalExtensions.Tests
 
         private class Right
         {
+            public Right(string rightProperty)
+            {
+                RightProperty = rightProperty;
+            }
+
+            public string RightProperty { get; }
         }
 
         [Fact]
         public void LeftOrDefault_IsLeft_ReturnsLeft()
         {
             // Arrange
-            var either = new Either<Left, Right>(new Left("Value"));
+            var either = GetExampleLeft();
 
             // Act
             var left = either.LeftOrDefault();
@@ -36,7 +42,7 @@ namespace FunctionalExtensions.Tests
         public void RightOrDefault_IsRight_ReturnsRight()
         {
             // Arrange
-            var either = new Either<Left, Right>(new Right());
+            var either = GetExampleRight();
 
             // Act
             var right = either.RightOrDefault();
@@ -44,5 +50,9 @@ namespace FunctionalExtensions.Tests
             // Assert
             right.Should().NotBeNull();
         }
+
+        private Either<Left, Right> GetExampleLeft() => new Left("Left value");
+
+        private Either<Left, Right> GetExampleRight() => new Right("Right value");
     }
 }
