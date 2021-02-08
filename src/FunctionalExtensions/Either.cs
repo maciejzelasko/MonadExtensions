@@ -6,7 +6,7 @@ namespace FunctionalExtensions
     /// <summary>
     ///     http://hackage.haskell.org/package/category-extras-0.52.1/docs/Control-Monad-Either.html#t:Either
     /// </summary>
-    public class Either<TL, TR>
+    public struct Either<TL, TR>
     {
         private readonly bool _isLeft;
         private readonly TL _left;
@@ -14,14 +14,16 @@ namespace FunctionalExtensions
 
         public Either(TL left)
         {
-            _left = left;
-            _isLeft = true;
+            this._left = left;
+            this._isLeft = true;
+            this._right = default;
         }
 
         public Either(TR right)
         {
-            _right = right;
-            _isLeft = false;
+            this._right = right;
+            this._isLeft = false;
+            this._left = default;
         }
 
         public T Match<T>(Func<TL, T> leftFunc, Func<TR, T> rightFunc)
@@ -29,12 +31,12 @@ namespace FunctionalExtensions
             Ensure.That(leftFunc, nameof(leftFunc)).IsNotNull();
             Ensure.That(rightFunc, nameof(rightFunc)).IsNotNull();
 
-            return _isLeft ? leftFunc(_left) : rightFunc(_right);
+            return this._isLeft ? leftFunc(this._left) : rightFunc(this._right);
         }
 
-        public TL LeftOrDefault() => Match(l => l, r => default);
+        public TL LeftOrDefault() => this.Match(l => l, r => default);
 
-        public TR RightOrDefault() => Match(l => default, r => r);
+        public TR RightOrDefault() => this.Match(l => default, r => r);
 
         public static implicit operator Either<TL, TR>(TL left) => new Either<TL, TR>(left);
 

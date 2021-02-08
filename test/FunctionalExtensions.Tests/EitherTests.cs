@@ -51,8 +51,8 @@ namespace FunctionalExtensions.Tests
             right.Should().NotBeNull();
         }
 
-        private Either<Left, Right> GetExampleLeft() => new Left("Left value");
+        private static Either<Left, Right> GetExampleLeft() => new Left("Left value");
 
-        private Either<Left, Right> GetExampleRight() => new Right("Right value");
+        private static Either<Left, Right> GetExampleRight() => new Right("Right value");
     }
 }
