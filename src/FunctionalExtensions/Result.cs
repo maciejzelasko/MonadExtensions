@@ -13,8 +13,8 @@
         public bool IsFailure { get; }
         public bool IsSuccess => !IsFailure;
 
-        public static Result Success() => new Result(false);
+        public static Result Success() => new(false);
 
-        public static Result Failure() => new Result(true);
+        public static Result Failure() => new(true);
     }
 }

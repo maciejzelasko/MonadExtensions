@@ -14,16 +14,16 @@ namespace FunctionalExtensions
 
         public Either(TL left)
         {
-            this._left = left;
-            this._isLeft = true;
-            this._right = default;
+            _left = left;
+            _isLeft = true;
+            _right = default;
         }
 
         public Either(TR right)
         {
-            this._right = right;
-            this._isLeft = false;
-            this._left = default;
+            _right = right;
+            _isLeft = false;
+            _left = default;
         }
 
         public T Match<T>(Func<TL, T> leftFunc, Func<TR, T> rightFunc)
@@ -31,15 +31,15 @@ namespace FunctionalExtensions
             Ensure.That(leftFunc, nameof(leftFunc)).IsNotNull();
             Ensure.That(rightFunc, nameof(rightFunc)).IsNotNull();
 
-            return this._isLeft ? leftFunc(this._left) : rightFunc(this._right);
+            return _isLeft ? leftFunc(_left) : rightFunc(_right);
         }
 
-        public TL LeftOrDefault() => this.Match(l => l, r => default);
+        public TL LeftOrDefault() => Match(l => l, r => default);
 
-        public TR RightOrDefault() => this.Match(l => default, r => r);
+        public TR RightOrDefault() => Match(l => default, r => r);
 
-        public static implicit operator Either<TL, TR>(TL left) => new Either<TL, TR>(left);
+        public static implicit operator Either<TL, TR>(TL left) => new(left);
 
-        public static implicit operator Either<TL, TR>(TR right) => new Either<TL, TR>(right);
+        public static implicit operator Either<TL, TR>(TR right) => new(right);
     }
 }
