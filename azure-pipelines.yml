@@ -1,19 +1,36 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- develop
+  - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: "windows-latest"
+
+variables:
+  buildConfiguration: "Release"
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - task: DotNetCoreCLI@2
+    displayName: "dotnet build"
+    inputs:
+      command: "build"
+      arguments: "--configuration $(buildConfiguration)"
+      projects: "CommonLib/CommonLib.csproj"
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - task: DotNetCoreCLI@2
+    displayName: "dotnet pack"
+    inputs:
+      command: "pack"
+      arguments: "--configuration $(buildConfiguration)"
+      packagesToPack: "src/FunctionalExtensions/FunctionalExtensions.csproj"
+      nobuild: true
+      versioningScheme: "off"
+
+  # - task: NuGetCommand@2
+  #   displayName: "nuget push"
+  #   inputs:
+  #     command: "push"
+  #     feedsToUse: "select"
+  #     packagesToPush: "$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg"
+  #     nuGetFeedType: "internal"
+  #     publishVstsFeed: "TestFeed"
+  #     versioningScheme: "off"
+  #     allowPackageConflicts: true
