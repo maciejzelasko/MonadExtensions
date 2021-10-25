@@ -23,7 +23,7 @@ steps:
       arguments: "--configuration $(buildConfiguration)"
       packagesToPack: "src/FunctionalExtensions/FunctionalExtensions.csproj"
       nobuild: true
-      versioningScheme: byBuildNumber
+      versioningScheme: "off"
 
   - task: NuGetCommand@2
     displayName: "nuget push"
