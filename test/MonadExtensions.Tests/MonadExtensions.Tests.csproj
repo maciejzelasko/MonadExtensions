@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FunctionalExtensions\MonadExtensions.csproj" />
+    <ProjectReference Include="..\..\src\MonadExtensions\MonadExtensions.csproj" />
   </ItemGroup>
 
 </Project>
