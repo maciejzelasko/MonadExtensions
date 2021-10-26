@@ -10,27 +10,18 @@ variables:
 
 steps:
   - task: DotNetCoreCLI@2
-    displayName: "dotnet build"
-    inputs:
-      command: "build"
-      arguments: "--configuration $(buildConfiguration)"
-      projects: "src/FunctionalExtensions/FunctionalExtensions.csproj"
-
-  - task: DotNetCoreCLI@2
-    displayName: "dotnet pack"
+    displayName: "Pack"
     inputs:
       command: "pack"
       arguments: "--configuration $(buildConfiguration)"
       packagesToPack: "src/FunctionalExtensions/FunctionalExtensions.csproj"
-      nobuild: true
       versioningScheme: "off"
 
   - task: NuGetCommand@2
-    displayName: "nuget push"
+    displayName: "Publish"
     inputs:
       command: "push"
-      feedsToUse: "select"
-      packagesToPush: "$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg"
+      packagesToPush: "$(Build.ArtifactStagingDirectory)/*.nupkg"
       nuGetFeedType: "internal"
       publishVstsFeed: "mzelasko"
       versioningScheme: "off"
