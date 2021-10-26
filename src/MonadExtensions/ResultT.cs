@@ -1,4 +1,4 @@
-namespace FunctionalExtensions
+namespace MonadExtensions
 {
     public struct Result<T>
     {

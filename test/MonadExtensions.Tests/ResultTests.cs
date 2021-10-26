@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace FunctionalExtensions.Tests
+namespace MonadExtensions.Tests
 {
     public class ResultTests
     {

@@ -14,7 +14,7 @@ steps:
     inputs:
       command: "pack"
       arguments: "--configuration $(buildConfiguration)"
-      packagesToPack: "src/FunctionalExtensions/FunctionalExtensions.csproj"
+      packagesToPack: "src/MonadExtensions/MonadExtensions.csproj"
       versioningScheme: "off"
 
   - task: NuGetCommand@2

@@ -1,7 +1,7 @@
 ﻿using System;
 using EnsureThat;
 
-namespace FunctionalExtensions
+namespace MonadExtensions
 {
     /// <summary>
     ///     http://hackage.haskell.org/package/category-extras-0.52.1/docs/Control-Monad-Either.html#t:Either

@@ -1,4 +1,4 @@
-﻿namespace FunctionalExtensions
+﻿namespace MonadExtensions
 {
     /// <summary>
     ///     http://hackage.haskell.org/package/result-0.2.6.0/docs/Control-Monad-Trans-Result.html

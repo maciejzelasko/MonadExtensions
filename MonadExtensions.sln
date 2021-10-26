@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31815.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalExtensions", "src\FunctionalExtensions\FunctionalExtensions.csproj", "{8DB0EC1F-0906-4C39-BAA0-A956C530DBE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonadExtensions", "src\MonadExtensions\MonadExtensions.csproj", "{8DB0EC1F-0906-4C39-BAA0-A956C530DBE7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{71E665DA-6AA4-459F-9F23-8F2B3BF6F747}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D282CD67-0979-4FA4-8FED-1A14ED473A7C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalExtensions.Tests", "test\FunctionalExtensions.Tests\FunctionalExtensions.Tests.csproj", "{D84C9CAE-B4FD-4AA1-BE24-B6A7A52E8842}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonadExtensions.Tests", "test\MonadExtensions.Tests\MonadExtensions.Tests.csproj", "{D84C9CAE-B4FD-4AA1-BE24-B6A7A52E8842}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{BEC9F420-44F9-4935-B160-1A23CCCD5BBE}"
 	ProjectSection(SolutionItems) = preProject
